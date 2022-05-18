@@ -1,6 +1,7 @@
 import { Cadastro } from './../models/cadastro';
 import { Component, OnInit } from '@angular/core';
 import { CadastrosService } from '../services/cadastros.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cadastros',
@@ -9,15 +10,17 @@ import { CadastrosService } from '../services/cadastros.service';
 })
 export class CadastrosComponent implements OnInit {
   // Devido ao modo strict estar como true, temos obrigatóriamente que iniciar essa variavel, o que tbm pode ser feito no constructor.
-  cadastros: Cadastro[] = [];
+  cadastros:Observable <Cadastro[]>;
 
   //Colunas que serão exibidas
   displayedColumns = ['_id', 'nome', 'categoria'];
 
-  constructor(private cadastroService: CadastrosService) {}
+  constructor(private cadastroService: CadastrosService) {
+    this.cadastros = this.cadastroService.listaTudo();
+  }
 
   ngOnInit(): void {
 
-    this.cadastros = this.cadastroService.listaTudo();
+
   }
 }
