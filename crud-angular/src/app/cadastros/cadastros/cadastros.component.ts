@@ -10,13 +10,13 @@ import { Observable } from 'rxjs';
 })
 export class CadastrosComponent implements OnInit {
   // Devido ao modo strict estar como true, temos obrigatóriamente que iniciar essa variavel, o que tbm pode ser feito no constructor.
-  cadastros:Observable <Cadastro[]>;
+  cadastros$:Observable <Cadastro[]>;
 
   //Colunas que serão exibidas
   displayedColumns = ['_id', 'nome', 'categoria'];
 
   constructor(private cadastroService: CadastrosService) {
-    this.cadastros = this.cadastroService.listaTudo();
+    this.cadastros$ = this.cadastroService.listaTudo();
   }
 
   ngOnInit(): void {
