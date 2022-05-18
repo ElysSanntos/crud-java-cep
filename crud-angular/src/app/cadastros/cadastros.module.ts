@@ -1,14 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
 
+import { AppMaterialModule } from './../shared/app-material/app-material.module';
 import { CadastrosRoutingModule } from './cadastros-routing.module';
 import { CadastrosComponent } from './cadastros/cadastros.component';
 
 
 
+
+
+
 @NgModule({
   declarations: [CadastrosComponent],
-  imports: [CommonModule, CadastrosRoutingModule, MatTableModule],
+  imports: [
+    CommonModule,
+    CadastrosRoutingModule,
+    AppMaterialModule
+
+  ],
 })
 export class CadastrosModule {}
