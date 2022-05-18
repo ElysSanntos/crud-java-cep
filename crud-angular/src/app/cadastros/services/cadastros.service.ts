@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, tap } from 'rxjs';
+import { delay, first, tap } from 'rxjs';
 
 import { Cadastro } from './../models/cadastro';
 
@@ -20,6 +20,7 @@ export class CadastrosService {
     return  this.httpClient.get<Cadastro[]>(this.API)
     .pipe(
       first(),
+      delay(500),
       tap(listaCadastros=>console.log(listaCadastros))
       );
   }
