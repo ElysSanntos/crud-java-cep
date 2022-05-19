@@ -9,17 +9,19 @@ import { Cadastro } from './../models/cadastro';
   providedIn: 'root',
 })
 export class CadastrosService {
-  private readonly API = 'api/cadastros';
 
-  constructor(private httpClient: HttpClient) {}
+  private readonly API = '../../../assets/cadastros.json'
+
+  constructor(private httpClient:HttpClient) { }
 
   //metodo para retornar uma lista de cursos para o component
 
-  listaTudo() {
-    return this.httpClient.get<Cadastro[]>(this.API).pipe(
+  listaTudo(){
+    return  this.httpClient.get<Cadastro[]>(this.API)
+    .pipe(
       first(),
       delay(500),
-      tap((listaCadastros) => console.log(listaCadastros))
-    );
+      tap(listaCadastros=>console.log(listaCadastros))
+      );
   }
 }
