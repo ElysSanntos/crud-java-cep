@@ -5,9 +5,10 @@ import { SharedModule } from '../shared/shared.module';
 import { AppMaterialModule } from './../shared/app-material/app-material.module';
 import { CadastrosRoutingModule } from './cadastros-routing.module';
 import { CadastrosComponent } from './cadastros/cadastros.component';
+import { CadastroFormComponent } from './cadastro-form/cadastro-form.component';
 
 @NgModule({
-  declarations: [CadastrosComponent],
+  declarations: [CadastrosComponent, CadastroFormComponent],
   imports: [
     CommonModule,
     CadastrosRoutingModule,

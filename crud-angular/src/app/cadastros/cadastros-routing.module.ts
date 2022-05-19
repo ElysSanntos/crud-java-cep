@@ -1,12 +1,15 @@
+import { CadastroFormComponent } from './cadastro-form/cadastro-form.component';
 import { CadastrosComponent } from './cadastros/cadastros.component';
-import { CadastrosModule } from './cadastros.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path:'',component: CadastrosComponent,
-  }
+  },
+  {
+    path:'new',component: CadastroFormComponent,
+  },
 ];
 
 @NgModule({
