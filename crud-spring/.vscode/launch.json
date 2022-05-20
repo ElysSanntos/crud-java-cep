@@ -6,7 +6,7 @@
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "console": "internalConsole",
-      "mainClass": "com.cotuca.crudspring.CrudSpringApplication",
+      "mainClass": "com.cotuca.CrudSpringApplication",
       "projectName": "crud-spring",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
