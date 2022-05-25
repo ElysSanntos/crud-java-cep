@@ -1,1 +1,30 @@
-<p>cadastro-form works!</p>
+<mat-card>
+
+    <mat-toolbar color="primary">Detalhes dos Cadastros</mat-toolbar>
+
+    <mat-card-content>
+        <form [formGroup]="form" class="min-width">
+
+            <!-- Campo nome do cadastro -->
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Nome" formControlName="nome">
+            </mat-form-field>
+
+            <!-- Campo categoria do cadastro -->
+            <mat-form-field class="full-width">
+                <mat-label>Categoria</mat-label>
+                <mat-select formControlNome="categoria">
+                    <mat-option value="null"></mat-option>
+                    <mat-option value="PF">Pessoa Fisica</mat-option>
+                    <mat-option value="PJ">Pessoa Juridica</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+
+    <!-- Botões -->
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+        <button mat-raised-button (click)="onCancel()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>

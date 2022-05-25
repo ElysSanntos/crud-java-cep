@@ -13,8 +13,8 @@ const routes: Routes = [
     //Lazy load:
     path: 'cadastros',
     loadChildren: () =>
-      import('src/app/cadastros/cadastros.module').then((m) => m.CadastrosModule),
-  },
+      import('./cadastros/cadastros.module').then((m => m.CadastrosModule)
+  )},
 ];
 
 @NgModule({

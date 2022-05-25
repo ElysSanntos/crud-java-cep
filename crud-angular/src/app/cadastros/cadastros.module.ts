@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { AppMaterialModule } from './../shared/app-material/app-material.module';
+import { CadastroFormComponent } from './cadastro-form/cadastro-form.component';
 import { CadastrosRoutingModule } from './cadastros-routing.module';
 import { CadastrosComponent } from './cadastros/cadastros.component';
-import { CadastroFormComponent } from './cadastro-form/cadastro-form.component';
+
 
 @NgModule({
   declarations: [CadastrosComponent, CadastroFormComponent],
@@ -13,7 +15,8 @@ import { CadastroFormComponent } from './cadastro-form/cadastro-form.component';
     CommonModule,
     CadastrosRoutingModule,
     AppMaterialModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
 
   ],
 })

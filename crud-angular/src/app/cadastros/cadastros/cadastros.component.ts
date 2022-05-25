@@ -1,10 +1,12 @@
-import { ErrorDialogComponent } from './../../shared/components/error-dialog/error-dialog.component';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { catchError, Observable, of } from 'rxjs';
-import { CadastrosService } from '../services/cadastros.service';
-import { Cadastro } from './../models/cadastro';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, Observable, of } from 'rxjs';
+
+import { CadastrosService } from '../services/cadastros.service';
+import { ErrorDialogComponent } from './../../shared/components/error-dialog/error-dialog.component';
+import { Cadastro } from './../models/cadastro';
+
 
 @Component({
   selector: 'app-cadastros',
@@ -13,7 +15,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CadastrosComponent {
   // Devido ao modo strict estar como true, temos obrigatóriamente que iniciar essa variavel, o que tbm pode ser feito no constructor.
-  cadastros$: Observable<Cadastro[]>;
+
+  cadastros$!: Observable<Cadastro[]>;
 
   //Colunas que serão exibidas
   displayedColumns = ['_id', 'nome', 'categoria', 'actions'];
@@ -21,19 +24,15 @@ export class CadastrosComponent {
   constructor(
     private cadastroService: CadastrosService,
     public dialog: MatDialog,
-    public router: Router,
+    private router: Router, //controla o roteamento no Angular
     private route: ActivatedRoute
   ) {
     this.cadastros$ = this.cadastroService.listaTudo().pipe(
       catchError((error) => {
-        this.onError('Erro ao carregar cadastros.');
+        this.onError('Erro ao carregar os cadastros.');
         return of([]);
       })
     );
-  }
-
-  onAdd() {
-    this.router.navigate(['new'], { relativeTo: this.route });
   }
 
   onError(errorMsg: string) {
@@ -41,6 +40,11 @@ export class CadastrosComponent {
       data: errorMsg,
     });
   }
+
+  ngOnInit(): void {}
+
+  onAdd() {
+
+     this.router.navigate(['new'], { relativeTo: this.route });
+  }
 }
-
-
