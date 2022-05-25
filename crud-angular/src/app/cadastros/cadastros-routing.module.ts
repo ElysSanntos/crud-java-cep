@@ -5,15 +5,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'',component: CadastrosComponent,
+    path: '',
+    component: CadastrosComponent,
   },
   {
-    path:'new',component: CadastroFormComponent,
+    path: 'new',
+    component: CadastroFormComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CadastrosRoutingModule { }
+export class CadastrosRoutingModule {}

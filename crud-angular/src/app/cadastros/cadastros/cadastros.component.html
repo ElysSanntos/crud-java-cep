@@ -23,27 +23,29 @@
                     </mat-icon>
                 </td>
             </ng-container>
-            <!-- Ações do cadastro -->
+            <!-- Ações da coluna de cadastro -->
             <ng-container matColumnDef="actions">
+                <!-- Adicionado o botão de adionar cadastro -->
                 <mat-header-cell *matHeaderCellDef>
-                    <button mat-mini-fab color="accent" aria-label="Adicionar um curso">
-                <mat-icon (click)="onAdd()" >add</mat-icon>
-              </button>
+                    <button mat-mini-fab color="accent" aria-label="Adicionar um cadastro">
+            <mat-icon (click)="onAdd()">add</mat-icon>
+          </button>
                 </mat-header-cell>
+                <!-- Adicionando o corpo da coluna de cadastro -->
 
                 <mat-cell *matCellDef="let cadastro">
+                    <!-- Adicionado o botão de editar -->
                     <button mat-icon-button color="primary" aria-label="Editar um cadastro">
-                      <mat-icon>edit</mat-icon>
+                         <mat-icon>edit</mat-icon>
                     </button>
-
+                    <!-- Adicionado o botão de remover -->
                     <button mat-icon-button color="warn" aria-label="Remover Curso">
-                      <mat-icon>delete</mat-icon>
+                        <mat-icon>delete</mat-icon>
                     </button>
                 </mat-cell>
-
-
-
             </ng-container>
+
+
             <!-- Colunas exibidas -->
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
