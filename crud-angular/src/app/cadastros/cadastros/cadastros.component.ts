@@ -15,7 +15,7 @@ export class CadastrosComponent {
   // Devido ao modo strict estar como true, temos obrigatóriamente que iniciar essa variavel, o que tbm pode ser feito no constructor.
   cadastros$: Observable<Cadastro[]>;
 
-  //Colunas que serão exibidas
+  //Colunas que serão exibidas na pagina
   displayedColumns = ['_id', 'nome', 'categoria', 'actions'];
 
   constructor(

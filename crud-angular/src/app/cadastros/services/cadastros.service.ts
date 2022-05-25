@@ -23,4 +23,10 @@ export class CadastrosService {
       tap((listaCadastros) => console.log(listaCadastros))
     );
   }
+
+  save(registro: Cadastro) {
+    //console.log(registro);
+    return this.httpClient.post<Cadastro>(this.API, registro)
+    .pipe(first());
+  }
 }
